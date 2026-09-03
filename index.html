@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LTM Java MCQ Practice Portal for Trainers - Interactive Spring Boot, JPA, Hibernate, Servlets & REST API Exam Platform">
+  <title>MCQ Springboot practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Navbar -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">☕</div>
+      <div>
+        <h1 class="brand-title">MCQ Springboot practice</h1>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <span class="mode-badge" id="timerDisplay">00:00</span>
+      <button class="btn btn-primary" id="modeBtn">Mode: Practice</button>
+      <button class="btn" id="themeBtn">🌙 Dark</button>
+      <button class="btn btn-danger" id="resetBtn" title="Reset All Progress">🔄 Reset</button>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <div class="app-container">
+
+    <!-- Left Sidebar Panel -->
+    <aside class="sidebar">
+      <!-- Quick Dashboard Stats -->
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-val" id="statTotal">446</span>
+          <span class="stat-lbl">Questions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="statAttempted">0</span>
+          <span class="stat-lbl">Attempted</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="statCorrect">0</span>
+          <span class="stat-lbl">Correct</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="statAccuracy">0%</span>
+          <span class="stat-lbl">Accuracy</span>
+        </div>
+      </div>
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Search question or ID...">
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-group">
+        <label class="filter-label" for="categoryFilter">Topic Category</label>
+        <select id="categoryFilter" class="filter-select">
+          <option value="all">All Topics</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="statusFilter">Status Filter</label>
+        <select id="statusFilter" class="filter-select">
+          <option value="all">All Questions</option>
+          <option value="answered">Answered</option>
+          <option value="unanswered">Unanswered</option>
+          <option value="flagged">Flagged ★</option>
+          <option value="correct">Correct ✓</option>
+          <option value="incorrect">Incorrect ✗</option>
+        </select>
+      </div>
+
+      <!-- Jump Palette Header & Grid -->
+      <div class="grid-title">
+        <span>Question Palette</span>
+        <span id="gridCount">0 Qs</span>
+      </div>
+      <div class="question-grid" id="questionGrid"></div>
+
+      <button class="btn btn-success" id="submitExamBtn" style="width: 100%; margin-top: auto;">🏆 Submit Exam</button>
+    </aside>
+
+    <!-- Right Main Interactive Area -->
+    <main class="main-content">
+      <div class="card">
+        <!-- Question Meta Chips -->
+        <div class="question-header">
+          <div class="question-meta">
+            <span class="chip chip-category" id="qCategory">Spring Boot & JPA</span>
+            <span class="chip" id="qDifficulty">Medium</span>
+            <span class="chip" id="qId">Q1 of 446</span>
+          </div>
+          <button class="btn" id="flagBtn">☆ Flag</button>
+        </div>
+
+        <!-- Question Title & Content -->
+        <h2 class="question-text" id="qText">Question text loading...</h2>
+
+        <!-- Code Block Container (Hidden if empty) -->
+        <div class="code-block" id="codeContainer" style="display: none;">
+          <pre><code id="qCode"></code></pre>
+        </div>
+
+        <!-- Options Container -->
+        <div class="options-list" id="optionsList"></div>
+
+        <!-- Explanation Box (Appears in Practice & Review mode) -->
+        <div class="explanation-box" id="explanationBox" style="display: none;">
+          <div class="explanation-title">💡 Explanation & Solution</div>
+          <p class="explanation-text" id="explanationText"></p>
+        </div>
+
+        <!-- Footer Action Navigation -->
+        <div class="card-actions">
+          <button class="btn" id="prevBtn">← Previous</button>
+          <div class="btn-group">
+            <button class="btn btn-primary" id="nextBtn">Next →</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Score Summary Modal -->
+  <div class="modal-overlay" id="scoreModal">
+    <div class="modal-card">
+      <h2>Exam Performance Summary</h2>
+      
+      <div class="score-circle" style="--score-pct: 0;">
+        <div class="score-circle-inner">
+          <span class="score-num" id="modalScoreText">0 / 0</span>
+          <span class="score-pct" id="modalScorePct">0%</span>
+        </div>
+      </div>
+
+      <p id="modalMsg" style="margin-bottom: 1.5rem; color: var(--text-secondary);"></p>
+
+      <button class="btn btn-primary" id="closeModalBtn">Review Solutions & Explanations</button>
+    </div>
+  </div>
+
+  <!-- Include Data and Application Logic -->
+  <script src="questions_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
