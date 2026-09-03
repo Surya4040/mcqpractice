@@ -1,0 +1,9 @@
+node_modules/
+*.pdf
+extracted_pdf_text.txt
+parsed_blocks.json
+solution_map_debug.json
+extract_pdf.js
+parse_pdf_complete.js
+build_full_dataset.js
+build_perfect_446_dataset.js

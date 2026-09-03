@@ -1,7 +1,0 @@
-{
-  "solCount": 429,
-  "sampleSol1": "It injects a reference to the EntityManager into a Spring bean.",
-  "sampleSol16": "Implement a custom exception handler using @ControllerAdvice to intercept ProductCreationException and return a structured error response with detailed error codes and messages, adhering to RESTful API best practices. -- 122 of 174 --",
-  "sampleSol100": "java.time.LocalDate",
-  "sampleSol446": "Click on the \"Code\" tab, then type the new branch name in the \"Branch: main\" dropdown and click \"Create branch\". -- 174 of 174 --"
-}
